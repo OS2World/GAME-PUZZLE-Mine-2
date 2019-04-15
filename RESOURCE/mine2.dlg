@@ -1,0 +1,208 @@
+#ifndef OS2_INCLUDED
+   #include <os2.h>
+#endif
+
+DLGTEMPLATE ID_DLG_ABOUT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "About", ID_DLG_ABOUT, 30, 30, 140, 94, WS_VISIBLE, FCF_SYSMENU |
+            FCF_TITLEBAR
+    BEGIN
+        CONTROL         ID_BMP_ABOUT, ID_BMP_ABOUT, 0, 0, 21, 16, WC_STATIC, SS_BITMAP
+        CTEXT           "Version 1.00  (c) 1997 Mike, Vienna", -1, 2, 26, 136, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CTEXT           "for Martina", -1, 2, 36, 136, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        PUSHBUTTON      "~Ok", DID_OK, 50, 4, 40, 14
+    END
+END
+
+DLGTEMPLATE ID_DLG_USERDEF LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "...", ID_DLG_USERDEF, 30, 30, 194, 110, WS_VISIBLE, FCF_SYSMENU | 
+            FCF_TITLEBAR
+    BEGIN
+        CONTROL         "", ID_VSL_CY, 9, 12, 9, 72, WC_SCROLLBAR, SBS_VERT | 
+                        WS_VISIBLE
+        CONTROL         "", ID_HSL_CX, 26, 90, 94, 7, WC_SCROLLBAR, SBS_HORZ | 
+                        WS_VISIBLE
+        CONTROL         ID_BMP_GRID, ID_BMP_GRID, 28, 20, 10, 10, WC_STATIC, SS_BITMAP |
+                        WS_VISIBLE
+        CONTROL         "", ID_CSL_MINES, 130, 44, 50, 50, WC_CIRCULARSLIDER,
+                        CSS_POINTSELECT | CSS_NOTEXT | WS_VISIBLE
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL         "", ID_BGR_RECTL_X, 0, 0, 0, 0, WC_STATIC, SS_BKGNDRECT | 
+                        WS_GROUP | WS_VISIBLE
+        CONTROL         "", ID_BGR_RECTL_Y, 0, 0, 0, 0, WC_STATIC, SS_BKGNDRECT | 
+                        WS_GROUP | WS_VISIBLE
+        PUSHBUTTON      "~Cancel", DID_CANCEL, 130, 24, 52, 14
+        DEFPUSHBUTTON   "~Ok", DID_OK, 130, 9, 52, 14
+    END
+END
+
+DLGTEMPLATE ID_DLG_HOF LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Hall of Fame", ID_DLG_HOF, 30, 30, 308, 84, WS_VISIBLE, FCF_SYSMENU | 
+            FCF_TITLEBAR
+    BEGIN
+        LTEXT           "Novice",       -1, 67, 60, 58, 8
+        LTEXT           "Advanced",     -1, 67, 45, 58, 8
+        LTEXT           "Professional", -1, 67, 30, 58, 8
+        LTEXT           "", ID_TXT_NOV_NAME, 186, 60, 109, 8
+        LTEXT           "", ID_TXT_ADV_NAME, 186, 45, 109, 8
+        LTEXT           "", ID_TXT_PRO_NAME, 186, 30, 109, 8
+        LTEXT           ":", -1, 128, 30, 5, 8
+        LTEXT           ":", -1, 128, 45, 5, 8
+        LTEXT           ":", -1, 128, 61, 5, 8
+        RTEXT           "", ID_TXT_NOV_TIME, 138, 60, 15, 8
+        RTEXT           "", ID_TXT_ADV_TIME, 138, 45, 15, 8
+        RTEXT           "", ID_TXT_PRO_TIME, 138, 30, 15, 8
+        LTEXT           "sec", -1, 158, 60, 20, 8
+        LTEXT           "sec", -1, 158, 45, 20, 8
+        LTEXT           "sec", -1, 158, 30, 20, 8
+        GROUPBOX        "", -1, 58, 25, 243, 53
+        CONTROL         ID_BMP_FAME, ID_BMP_FAME, 16, 10, 21, 16, WC_STATIC, 
+                        SS_BITMAP | WS_GROUP | WS_VISIBLE
+        RTEXT           "", ID_TXT_CLEAR, 200, 7, 86, 8
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        CONTROL         "", ID_BUT_CLEAR_2, 188, 7, 8, 8, WC_BUTTON,
+                        BS_PUSHBUTTON | BS_NOPOINTERFOCUS
+        CONTROL         "", ID_BUT_CLEAR_1, 290, 7, 8, 8, WC_BUTTON,
+                        BS_PUSHBUTTON | BS_NOPOINTERFOCUS
+        DEFPUSHBUTTON   "~Ok", DID_OK, 58, 7, 100, 14
+    END
+END
+
+DLGTEMPLATE ID_DLG_STAT LOADONCALL MOVEABLE DISCARDABLE
+BEGIN
+    DIALOG  "Statistic", ID_DLG_STAT, 30, 30, 234, 93, WS_VISIBLE, FCF_SYSMENU | 
+            FCF_TITLEBAR
+    BEGIN
+        RTEXT           "Playtime", -1, 63, 79, 34, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "Started", -1, 103, 79, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "Won", -1, 133, 79, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "Lost", -1, 163, 79, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "Abort", -1, 193, 79, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+
+        RTEXT           "Novice", -1, 7, 68, 48, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "--:--:--", ID_TXT_TIME_BASE, 63, 68, 34, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_STARTED_BASE, 103, 68, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_WON_BASE, 133, 68, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_LOST_BASE, 163, 68, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_ABORT_BASE, 193, 68, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+
+        RTEXT           "Advanced", -1, 7, 58, 48, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "--:--:--", ID_TXT_TIME_BASE+1, 63, 58, 34, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_STARTED_BASE+1, 103, 58, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_WON_BASE+1, 133, 58, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_LOST_BASE+1, 163, 58, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_ABORT_BASE+1, 193, 58, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+
+        RTEXT           "Professional", -1, 7, 48, 48, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "--:--:--", ID_TXT_TIME_BASE+2, 63, 48, 34, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_STARTED_BASE+2, 103, 48, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_WON_BASE+2, 133, 48, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_LOST_BASE+2, 163, 48, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_ABORT_BASE+2, 193, 48, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+
+        RTEXT           "Userdefined", -1, 7, 38, 48, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "--:--:--", ID_TXT_TIME_BASE+3, 63, 38, 34, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_STARTED_BASE+3, 103, 38, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_WON_BASE+3, 133, 38, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_LOST_BASE+3, 163, 38, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_ABORT_BASE+3, 193, 38, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+
+        RTEXT           "Total", -1, 7, 27, 48, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "--:--:--", ID_TXT_TIME_BASE+4, 63, 27, 34, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_STARTED_BASE+4, 103, 27, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_WON_BASE+4, 133, 27, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_LOST_BASE+4, 163, 27, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "0", ID_TXT_ABORT_BASE+4, 193, 27, 24, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+
+        CONTROL         "", -1, 62, 36, 160, 11, WC_STATIC, SS_FGNDFRAME | 
+                        WS_GROUP | WS_VISIBLE
+        CONTROL         "", -1, 62, 26, 160, 51, WC_STATIC, SS_FGNDFRAME | 
+                        WS_GROUP | WS_VISIBLE
+        CONTROL         "", -1, 62, 57, 160, 10, WC_STATIC, SS_FGNDFRAME | 
+                        WS_GROUP | WS_VISIBLE
+        CONTROL         "", -1, 17, 36, 205,  1, WC_STATIC, SS_FGNDFRAME | 
+                        WS_GROUP | WS_VISIBLE
+        CONTROL         "", -1, 101, 26, 31, 51, WC_STATIC, SS_FGNDFRAME | 
+                        WS_GROUP | WS_VISIBLE
+        CONTROL         "", -1, 161, 26, 31, 51, WC_STATIC, SS_FGNDFRAME | 
+                        WS_GROUP | WS_VISIBLE
+
+        RTEXT           "First Game", -1, 7, 10, 48, 8, DT_VCENTER
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+        RTEXT           "1.10.1966", ID_TXT_FIRST_GAME, 57, 10, 40, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+
+        DEFPUSHBUTTON   "~Ok", DID_OK, 137, 6, 52, 14
+        PUSHBUTTON      "", ID_BUT_RESET, 204, 6, 8, 8, BS_NOPOINTERFOCUS | NOT 
+                        WS_TABSTOP
+        CTEXT           "Reset", ID_TXT_RESET, 193, 14, 29, 8, DT_VCENTER
+                        PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
+                        PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
+    END
+END
+
