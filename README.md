@@ -1,7 +1,9 @@
 # Mine/2 - Minesweeper Clone for ArcaOS / eComStation / OS/2
 
 Mine/2 is a Minesweeper clone for the OS/2 Presentation Manager.
-Originally written by Mike (Vienna, Austria) in 1997 using IBM VisualAge C++.
+Originally written by Mike (Vienna, Austria) in 1997.
+
+![Mine/2](/doc/Mine2.png)
 
 ## Version
 
