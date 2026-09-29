@@ -1,0 +1,54 @@
+Mine/2 - Changelog
+==================
+
+Version 1.1 (2025)
+-------------------
+  Build system:
+  - Ported from IBM VisualAge C++ to OpenWatcom 2.0
+  - New makefile.wat: wmake, wcc386, wlink, wrc
+  - compile-wat.cmd build script
+  - Source tree reorganized: src/, bin/, doc/, help/, legacy/
+  - Image assets moved to src/images/
+
+  Language support:
+  - Added 6-language UI: English, Spanish, Dutch, German, French, Italian
+  - Language switchable at runtime from Options > Language menu
+  - All menus, dialogs, and Hall of Fame labels translated
+  - IPF help files written for all 6 languages
+  - Help reloads automatically when language is switched
+  - Help files compiled with wipfc to bin/help/mine2_XX.hlp
+
+  Menu and keyboard:
+  - New menu structure: Game / Options / Help
+  - Options submenus: Level, Pointer, Special, Language
+  - Keyboard shortcuts: Ctrl+N (new), Ctrl+P (pause), Ctrl+Q (quit game),
+    Ctrl+X (exit), Ctrl+S (statistics), Ctrl+B (background run)
+  - Accelerator table uses double-quoted char literals (OW wrc compatible)
+  - F2 = New game, F4 = Statistics, Esc = Quit game
+
+  Features added:
+  - Pause Game command (Ctrl+P)
+  - Quit Game command (Ctrl+Q, stops current game without exiting)
+  - Background Run option (Ctrl+B, timer continues when minimized)
+  - Save Settings on Exit option
+  - Hall of Fame labels and buttons fully translated per language
+  - Statistics dialog
+
+  Technical:
+  - Window created invisible at startup, shown after full initialization
+  - WM_ACTIVATE forwarded from frame to client via subclass
+  - BLDLEVEL string added to executable
+  - Animated eyes in About dialog preserved from original
+
+Version 1.0 (1997)
+-------------------
+  - Original release by Mike, Vienna, Austria
+  - IBM VisualAge C++ build
+  - Minesweeper clone for OS/2 Presentation Manager
+  - Three difficulty levels: Novice, Advanced, Professional
+  - User-defined field size
+  - Hall of Fame (top time per level)
+  - Statistics tracking
+  - Custom pointer graphics (4 styles)
+  - 7-segment LED display for timer and mine count
+  - Animated eyes in About dialog

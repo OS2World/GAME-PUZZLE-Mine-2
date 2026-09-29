@@ -7,8 +7,8 @@ BEGIN
     DIALOG  "About", ID_DLG_ABOUT, 30, 30, 140, 94, WS_VISIBLE, FCF_SYSMENU |
             FCF_TITLEBAR
     BEGIN
-        CONTROL         ID_BMP_ABOUT, ID_BMP_ABOUT, 0, 0, 21, 16, WC_STATIC, SS_BITMAP
-        CTEXT           "Version 1.00  (c) 1997 Mike, Vienna", -1, 2, 26, 136, 8, DT_VCENTER
+        CONTROL         ID_BMP_ABOUT, ID_BMP_ABOUT, 0, 0, 100, 80, WC_STATIC, SS_BITMAP
+        CTEXT           "Version 1.1  (c) 1997 Mike, Vienna", -1, 2, 26, 136, 8, DT_VCENTER
                         PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
         CTEXT           "for Martina", -1, 2, 36, 136, 8, DT_VCENTER
                         PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
@@ -18,21 +18,21 @@ END
 
 DLGTEMPLATE ID_DLG_USERDEF LOADONCALL MOVEABLE DISCARDABLE
 BEGIN
-    DIALOG  "...", ID_DLG_USERDEF, 30, 30, 194, 110, WS_VISIBLE, FCF_SYSMENU | 
+    DIALOG  "...", ID_DLG_USERDEF, 30, 30, 194, 110, WS_VISIBLE, FCF_SYSMENU |
             FCF_TITLEBAR
     BEGIN
-        CONTROL         "", ID_VSL_CY, 9, 12, 9, 72, WC_SCROLLBAR, SBS_VERT | 
+        CONTROL         "", ID_VSL_CY, 9, 12, 9, 72, WC_SCROLLBAR, SBS_VERT |
                         WS_VISIBLE
-        CONTROL         "", ID_HSL_CX, 26, 90, 94, 7, WC_SCROLLBAR, SBS_HORZ | 
+        CONTROL         "", ID_HSL_CX, 26, 90, 94, 7, WC_SCROLLBAR, SBS_HORZ |
                         WS_VISIBLE
         CONTROL         ID_BMP_GRID, ID_BMP_GRID, 28, 20, 10, 10, WC_STATIC, SS_BITMAP |
                         WS_VISIBLE
         CONTROL         "", ID_CSL_MINES, 130, 44, 50, 50, WC_CIRCULARSLIDER,
                         CSS_POINTSELECT | CSS_NOTEXT | WS_VISIBLE
                         PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
-        CONTROL         "", ID_BGR_RECTL_X, 0, 0, 0, 0, WC_STATIC, SS_BKGNDRECT | 
+        CONTROL         "", ID_BGR_RECTL_X, 0, 0, 0, 0, WC_STATIC, SS_BKGNDRECT |
                         WS_GROUP | WS_VISIBLE
-        CONTROL         "", ID_BGR_RECTL_Y, 0, 0, 0, 0, WC_STATIC, SS_BKGNDRECT | 
+        CONTROL         "", ID_BGR_RECTL_Y, 0, 0, 0, 0, WC_STATIC, SS_BKGNDRECT |
                         WS_GROUP | WS_VISIBLE
         PUSHBUTTON      "~Cancel", DID_CANCEL, 130, 24, 52, 14
         DEFPUSHBUTTON   "~Ok", DID_OK, 130, 9, 52, 14
@@ -41,12 +41,12 @@ END
 
 DLGTEMPLATE ID_DLG_HOF LOADONCALL MOVEABLE DISCARDABLE
 BEGIN
-    DIALOG  "Hall of Fame", ID_DLG_HOF, 30, 30, 308, 84, WS_VISIBLE, FCF_SYSMENU | 
+    DIALOG  "Hall of Fame", ID_DLG_HOF, 30, 30, 308, 84, WS_VISIBLE, FCF_SYSMENU |
             FCF_TITLEBAR
     BEGIN
-        LTEXT           "Novice",       -1, 67, 60, 58, 8
-        LTEXT           "Advanced",     -1, 67, 45, 58, 8
-        LTEXT           "Professional", -1, 67, 30, 58, 8
+        LTEXT           "Novice",       ID_HOF_LBL_NOV,  67, 60, 58, 8
+        LTEXT           "Advanced",     ID_HOF_LBL_ADV,  67, 45, 58, 8
+        LTEXT           "Professional", ID_HOF_LBL_PRO,  67, 30, 58, 8
         LTEXT           "", ID_TXT_NOV_NAME, 186, 60, 109, 8
         LTEXT           "", ID_TXT_ADV_NAME, 186, 45, 109, 8
         LTEXT           "", ID_TXT_PRO_NAME, 186, 30, 109, 8
@@ -56,11 +56,11 @@ BEGIN
         RTEXT           "", ID_TXT_NOV_TIME, 138, 60, 15, 8
         RTEXT           "", ID_TXT_ADV_TIME, 138, 45, 15, 8
         RTEXT           "", ID_TXT_PRO_TIME, 138, 30, 15, 8
-        LTEXT           "sec", -1, 158, 60, 20, 8
-        LTEXT           "sec", -1, 158, 45, 20, 8
-        LTEXT           "sec", -1, 158, 30, 20, 8
+        LTEXT           "sec", ID_HOF_LBL_SEC1, 158, 60, 20, 8
+        LTEXT           "sec", ID_HOF_LBL_SEC2, 158, 45, 20, 8
+        LTEXT           "sec", ID_HOF_LBL_SEC3, 158, 30, 20, 8
         GROUPBOX        "", -1, 58, 25, 243, 53
-        CONTROL         ID_BMP_FAME, ID_BMP_FAME, 16, 10, 21, 16, WC_STATIC, 
+        CONTROL         ID_BMP_FAME, ID_BMP_FAME, 16, 10, 21, 16, WC_STATIC,
                         SS_BITMAP | WS_GROUP | WS_VISIBLE
         RTEXT           "", ID_TXT_CLEAR, 200, 7, 86, 8
                         PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
@@ -74,7 +74,7 @@ END
 
 DLGTEMPLATE ID_DLG_STAT LOADONCALL MOVEABLE DISCARDABLE
 BEGIN
-    DIALOG  "Statistic", ID_DLG_STAT, 30, 30, 234, 93, WS_VISIBLE, FCF_SYSMENU | 
+    DIALOG  "Statistic", ID_DLG_STAT, 30, 30, 234, 93, WS_VISIBLE, FCF_SYSMENU |
             FCF_TITLEBAR
     BEGIN
         RTEXT           "Playtime", -1, 63, 79, 34, 8, DT_VCENTER
@@ -178,17 +178,17 @@ BEGIN
                         PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
                         PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
 
-        CONTROL         "", -1, 62, 36, 160, 11, WC_STATIC, SS_FGNDFRAME | 
+        CONTROL         "", -1, 62, 36, 160, 11, WC_STATIC, SS_FGNDFRAME |
                         WS_GROUP | WS_VISIBLE
-        CONTROL         "", -1, 62, 26, 160, 51, WC_STATIC, SS_FGNDFRAME | 
+        CONTROL         "", -1, 62, 26, 160, 51, WC_STATIC, SS_FGNDFRAME |
                         WS_GROUP | WS_VISIBLE
-        CONTROL         "", -1, 62, 57, 160, 10, WC_STATIC, SS_FGNDFRAME | 
+        CONTROL         "", -1, 62, 57, 160, 10, WC_STATIC, SS_FGNDFRAME |
                         WS_GROUP | WS_VISIBLE
-        CONTROL         "", -1, 17, 36, 205,  1, WC_STATIC, SS_FGNDFRAME | 
+        CONTROL         "", -1, 17, 36, 205,  1, WC_STATIC, SS_FGNDFRAME |
                         WS_GROUP | WS_VISIBLE
-        CONTROL         "", -1, 101, 26, 31, 51, WC_STATIC, SS_FGNDFRAME | 
+        CONTROL         "", -1, 101, 26, 31, 51, WC_STATIC, SS_FGNDFRAME |
                         WS_GROUP | WS_VISIBLE
-        CONTROL         "", -1, 161, 26, 31, 51, WC_STATIC, SS_FGNDFRAME | 
+        CONTROL         "", -1, 161, 26, 31, 51, WC_STATIC, SS_FGNDFRAME |
                         WS_GROUP | WS_VISIBLE
 
         RTEXT           "First Game", -1, 7, 10, 48, 8, DT_VCENTER
@@ -198,11 +198,10 @@ BEGIN
                         PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
 
         DEFPUSHBUTTON   "~Ok", DID_OK, 137, 6, 52, 14
-        PUSHBUTTON      "", ID_BUT_RESET, 204, 6, 8, 8, BS_NOPOINTERFOCUS | NOT 
+        PUSHBUTTON      "", ID_BUT_RESET, 204, 6, 8, 8, BS_NOPOINTERFOCUS | NOT
                         WS_TABSTOP
         CTEXT           "Reset", ID_TXT_RESET, 193, 14, 29, 8, DT_VCENTER
                         PRESPARAMS PP_FOREGROUNDCOLOR, 0x00000000L
                         PRESPARAMS PP_FONTNAMESIZE, "8.Helv"
     END
 END
-

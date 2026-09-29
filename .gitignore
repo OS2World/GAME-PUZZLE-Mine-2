@@ -1,0 +1,6 @@
+bin/*.obj
+bin/*.res
+bin/*.map
+bin/*.exe
+compile-wat.log
+*.bak
